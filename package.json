@@ -2,7 +2,7 @@
   "name": "Empresos App Backend",
   "version": "1.0.0",
   "description": "Empresos is a secure and innovative digital banking platform that provides seamless financial services, including account management, fund transfers, bill payments, and investment options. Designed for both individuals and businesses, it ensures fast, reliable, and user-friendly banking experiences.",
-  "author": "Golden Crest Tech",
+  "author": "Empresos",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -12,7 +12,7 @@
     "start": "NODE_ENV=development nest start",
     "start:dev": "NODE_ENV=development nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "NODE_ENV=production node dist/src/main.js",
+    "start:prod": "NODE_ENV=production node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
