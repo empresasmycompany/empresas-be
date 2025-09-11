@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: empresos-app
+    ports:
+      - '3030:3030'
+    depends_on:
+      - empresos-db
+      - redis
+    env_file:
+      - .env
+    networks:
+      - empresos-network
+    restart: always
+    volumes:
+      - .:/usr/src/app         # Bind source code for live reload
+      - /usr/src/app/node_modules  # Prevent overwriting node_modules
+    command: npm run start:dev
+
+  empresos-db:
+    image: postgres:15
+    container_name: empresos
+    restart: always
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - empresos-network
+    command: ["postgres", "-c", "listen_addresses=*"]
+
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    ports:
+      - '6379:6379'
+    networks:
+      - empresos-network
+
+networks:
+  empresos-network:
+
+volumes:
+  db-data:
