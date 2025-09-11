@@ -75,7 +75,7 @@ export class SeedService {
         password: passwordHash,
         firstName: 'Admin',
         lastName: 'User',
-        phoneNumber: '09060794442',
+        phoneNumber: '09000000000',
         accountStatus: AccountStatus.ACTIVE,
         isConfirmed: true,
         userRole: createdRoles.find((role) => role.name === 'admin'),
