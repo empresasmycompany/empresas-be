@@ -47,7 +47,7 @@ lerna-debug.log*
 # /config/development.yaml
 # /config/production.yaml
 # /config/custom-enviroment-variables.yaml
-*firebase-service-account.json
+config/firebase/firebase-service-account.json
 
 # # remove all yaml files
 # *.yaml
