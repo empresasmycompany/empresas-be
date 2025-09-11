@@ -71,7 +71,7 @@ export class SeedService {
 
     const sampleUsers = [
       {
-        email: 'lexico4real@gmail.com',
+        email: 'lexico11111111@gmail.com',
         password: passwordHash,
         firstName: 'Admin',
         lastName: 'User',

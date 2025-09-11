@@ -47,7 +47,7 @@ describe('AuthController', () => {
         createdAt: '2024-10-05T10:23:44.793Z',
         updatedAt: '2024-10-05T10:23:44.793Z',
         deletedAt: null,
-        email: 'lexico4real@gmail.com',
+        email: 'lexico11111111@gmail.com',
         roles: ['Super_Admin'],
       },
       {
