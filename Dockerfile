@@ -1,16 +1,16 @@
-# Stage 1: Build
+# Stage 1: Builder
 FROM node:18-alpine AS builder
 
 WORKDIR /usr/src/app
 
-# Copy package files and install dependencies
+# Install dependencies (include devDependencies for build)
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
 # Copy all source files
 COPY . .
 
-# Build the NestJS project (creates /dist)
+# Compile TypeScript -> dist/
 RUN npm run build
 
 
@@ -19,10 +19,11 @@ FROM node:18-alpine AS production
 
 WORKDIR /usr/src/app
 
-# Copy only what’s needed for production
+# Install only production dependencies
 COPY package*.json ./
 RUN npm install --only=production --legacy-peer-deps
 
+# Copy compiled app from builder
 COPY --from=builder /usr/src/app/dist ./dist
 
 EXPOSE 3030
